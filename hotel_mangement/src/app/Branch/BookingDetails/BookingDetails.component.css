@@ -1,0 +1,15 @@
+.input-group{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.exitbtn{
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+.fas
+{
+  cursor: pointer;
+}

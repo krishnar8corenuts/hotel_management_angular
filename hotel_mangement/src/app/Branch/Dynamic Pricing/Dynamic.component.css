@@ -1,0 +1,13 @@
+img{
+    border-radius: 50%;
+}
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.exitbtn{
+    display: flex;
+    justify-content: flex-end;
+  }

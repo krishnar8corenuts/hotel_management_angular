@@ -1,0 +1,81 @@
+
+
+body {
+    background-color: #edeaea;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .custom-sidenav {
+    background-color: #f0f0f0;
+    width: 250px;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .custom-sidenav li {
+    padding: 12px;
+  }
+  
+  .custom-sidenav a {
+    color: #c01515;
+    text-decoration: none;
+  }
+  
+  .custom-sidenav a:hover {
+    text-decoration: underline;
+  }
+  
+  .sidenav-container {
+    background-color: #f0f0f0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .main-content {
+    /* padding: 16px; */
+    background-color: #ffffff;
+    flex: 1;
+    padding: 20px;
+  }
+  
+  /* .header {
+    background-color:royalblue;
+    color: white; 
+    height: 64px; 
+  } */
+  
+  /* Side Navigation styles */
+  .sidenav-container {
+    margin-top: 64px; /* Add margin top to account for the height of the header */
+  }
+  
+  /* Main Content styles */
+  
+  
+  /* Footer styles */
+  .footer {
+    position: fixed; /* Set footer position as fixed */
+    bottom: 0; /* Align footer to the bottom of the viewport */
+    left: 0; /* Align footer to the left of the viewport */
+    width: 100%; /* Set footer width to 100% of the viewport */
+    background-color: roy;
+    color: white; /* Set text color to white */
+    padding: 10px; /* Add padding to the footer content */
+  }
+  
+  .content {
+    margin-top: 64px;
+    background-color: white;
+  }
+  
+  .mat-toolbar {
+    background: royalblue;
+    color: #fff;
+  }
+  .mat-drawer-container {
+    /* background-color: #303030; */
+    color: #fff;
+}
+ 

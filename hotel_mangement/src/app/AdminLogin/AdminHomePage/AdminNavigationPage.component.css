@@ -1,0 +1,82 @@
+.header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background-color: #125d6b;
+    color: #ffffff;
+  }
+  
+  .menu-text {
+    margin-right: auto;
+  }
+  
+  .material-icons {
+    margin-left: 15px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .material-icons:hover {
+    text-decoration: underline;
+  }
+  
+  .custom-sidenav {
+    background-color: #f0f0f0;
+    width: 300px;
+    list-style-type: none;
+    padding: 0;
+    margin-top: 64px;
+  }
+  .mat-nav-list {
+    padding: 0px 10px;
+    margin: 20px 10px 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .mat-nav-list a {
+    flex: 1;
+    padding: 20px 16px;
+    color: white;
+    transition: color 0.5s ease-in-out;
+  }
+  
+  .mat-nav-list a:hover {
+    color: #e0f035;
+    text-decoration: underline;
+  }
+  
+  
+  .custom-sidenav a {
+    color: #000000;
+    text-decoration: none;
+  }
+  
+  .custom-sidenav a:hover {
+    text-decoration: underline;
+  }
+  .mat-drawer {
+    background-color:#125d6b;
+    color: white;
+  }
+  
+  .sidenav-container {
+    height: 92vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .main-content {
+    padding: 16px;
+    background-color: #ffffff;
+    flex: 1;
+  }
+  .mat-drawer-container{
+    background-color: white;
+    color: black;
+  }
+  .content{
+    background-color: #e4a11b1f;
+  }
+  

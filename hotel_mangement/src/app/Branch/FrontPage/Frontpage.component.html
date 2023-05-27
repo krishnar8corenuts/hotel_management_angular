@@ -1,0 +1,65 @@
+
+<div class="roomtype" *ngIf="hideRoomType">
+  <!-- HTML -->
+<div class="branch-header">
+  <div>
+    <h1 style="color: black; text-align: center;"> Welcome to <span style="font-size: xx-large; color: darkmagenta;">{{this.branch.branchname}}</span> </h1>
+  </div>
+  <div class="head">
+    <span style="display: inline-block; margin-right: 5px;">From: </span>
+  <input id="inputdate" (change)="getRoomsStatusOnDateChange()" style="display: inline-block;" type="date"   [(ngModel)]="fromDate" [min]="getMinDate()">
+  <span style="display: inline-block; margin-right: 5px;">To: </span>
+  <input id="inputdate" (change)="getRoomsStatusOnDateChange()" style="display: inline-block;" type="date" [(ngModel)]="toDate"[min]="getMinDate()">
+  </div>
+</div>
+
+<div class="cards">
+  <div *ngFor="let room of statusCount|keyvalue"  class="room-type-item card">
+    <div class="card-body">
+      <div class="room-type-header">
+        {{ room.key  }}
+       </div>
+
+        <div  *ngFor="let item of room.value | keyvalue let i=index">
+          <div *ngIf="i==0 || i==1" class="room-type-info">
+            <mat-icon style="color: green;" *ngIf="i==0">check_circle</mat-icon>
+            <mat-icon style="color: red;" *ngIf="i==1">cancel</mat-icon>
+            {{item.key}}:{{item.value}}
+          </div>
+          <div *ngIf="i==2" class="room-type-info">
+             {{item.key}}: {{item.value| currency : "INR" : "symbol" : "3.2-2"}}
+          </div>
+        </div>
+        <div class="graph">
+          <canvas  height="fit-content"  [id]="room.key"></canvas>
+        </div>
+        <div>
+          <button #bttt class="btn btn-primary" style="background-color: #125d6b;" (click)="bookRoom(room.key,room.value)">Book</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf='notAvailable' class="cont">
+
+  <div  class="popup" >
+    <mat-icon >cancel</mat-icon>
+    <div class="img"><img src="https://th.bing.com/th/id/OIP.c5Ae2jEhX7I8V7cQWxH68wHaHa?pid=ImgDet&w=195&h=195&c=7&dpr=1.5"></div>
+    <h2>No Rooms Available</h2>
+
+    <button type="button" >OK</button>
+  </div>
+</div>
+<!--
+<div class="roomtype" *ngIf="!hideRoomType">
+  <app-booking-form (showRoomType)="showRoomType()"></app-booking-form>
+
+</div> -->
+
+
+<footer class="bg-light text-center text-lg-start">
+  <!-- Copyright -->
+
+  <!-- Copyright -->
+</footer>

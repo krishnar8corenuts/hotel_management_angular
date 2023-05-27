@@ -1,0 +1,97 @@
+/* form.component.css */
+.form-row .form-group {
+  position: relative;
+    display: inline-block;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 13px;
+    width: 30%;
+  }
+  label{
+    margin: 3px;
+  }
+
+  @media (max-width: 575px) {
+    .form-row .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  hr:not([size]).hr {
+    --mdb-divider-height: 1px;
+    --mdb-divider-bg: #757575;
+  }
+
+
+   .main-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+  }
+  /*
+  .reset{
+    display: flex;
+    justify-content: center;
+  }  */
+  .popup{
+
+    background: #f5f5f5;
+    border-radius: 6px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    padding:0  30px 30px ;
+    color: #333;
+    width: 20rem;
+    height: 20rem;
+
+
+  }
+  .popup button{
+    width: 100%;
+    margin-top: 3rem;
+    padding: 10px 0;
+    background: #6fd649;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 5 px rgba(0,0, 0, 0.2);
+  }
+  img, svg {
+    width: 100px;
+    top: 10px;
+    vertical-align: middle;
+  }
+  .popup[_ngcontent-pvr-c99] {
+    background: #f5f5f5;
+    border-radius: 6px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    width: 20rem;
+    height: 20rem;
+  }
+  .error-message {
+    color: red;
+    position: absolute; /*set position absolute on the error message element
+    top: 100%; /* position the error message below the parent element */
+    /*left: 0; /* align the error message to the left of the parent element */
+    height: 18px;
+  }
+  .btndiv{
+    display: flex;
+    justify-content: center
+  }
+  .btndiv button{
+    margin: 5px;
+  }

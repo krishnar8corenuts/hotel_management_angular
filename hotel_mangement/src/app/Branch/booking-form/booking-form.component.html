@@ -1,0 +1,149 @@
+<div style="display: flex; justify-content: flex-end;">
+  <div class="material-icons-container" >
+    <button type="button" class="btn btn-info" (click)="goBack()"><mat-icon>exit_to_app</mat-icon> </button>
+    <div class="shape"></div>
+  </div>
+</div>
+<div class="heading">Booking For:{{booking!.roomDetails!.rent!.roomType!.roomType}}</div>
+<div class="main-form">
+  <form #myForm="ngForm" (ngSubmit)="submitDetails(myForm)">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="checkInTime">Check In Date <span class="mandatory">*</span></label>
+        <input type="date" class="form-control" readonly name="checkInTime" [(ngModel)]="booking.checkInTime" [min]="getMinDate()">
+      </div>
+
+      <div class="form-group">
+        <label for="checkOutTime">Check Out Date <span class="mandatory">*</span></label>
+        <input type="date" class="form-control" readonly name="checkOutTime "  [(ngModel)]="booking.checkOutTime" [min]="getMinDate()">
+      </div>
+     
+      <div class="form-group">
+        <label for="roomNo"> RoomNo <span class="mandatory">*</span></label>
+        <input type="number" class="form-control" name="roomNo " [(ngModel)]="booking!.roomDetails!.roomNo" [ngModelOptions]="{standalone:true}" >
+      </div>
+
+    </div>
+    <hr class="hr" />
+    <div class="form-row">
+      <div class="form-group">
+        <div>
+          <label for="fullName">Full Name <span class="mandatory">*</span></label>
+          <input type="text" class="form-control" name="fullName" [(ngModel)]="booking!.customer!.customerName" required pattern="^[a-zA-Z][a-zA-Z\s]*$" #fullName="ngModel">
+          <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" class="error-message">
+            <span>Please enter a valid full name (letters and spaces only)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Gender <span class="mandatory">*</span></label>
+        <select class="form-control" name="Gender" [(ngModel)]="booking!.customer!.customerGender" placeholder="Select Gender" required #gender="ngModel">
+          
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        
+        <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="error-message">Please choose gender</div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email <span class="mandatory">*</span></label>
+      <input type="text" class="form-control" name="email" [(ngModel)]="booking!.customer!.customerEmail" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" #email="ngModel">
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">Please enter a valid email address</div>
+    </div>
+    
+
+    <div class="form-group">
+      <label for="phoneNo">Phone Number <span class="mandatory">*</span></label>
+      <input type="tel" class="form-control" name="phoneNo" [(ngModel)]="booking!.customer!.customerPhoneNo" required [ngModelOptions]="{standalone: true}" (input)="validatePhoneNo()" minlength="10" maxlength="10">
+      <div *ngIf="phoneNoError" class="error-message">Please enter a valid 10-digit phone number and does not start with 0to5</div>
+    </div>
+
+      <div class="form-group">
+        <label for="locality">Locality <span class="mandatory">*</span></label>
+        <input type="text" class="form-control" name="locality" [(ngModel)]="booking!.customer!.customerLocality" required pattern="^[a-zA-Z][a-zA-Z\s]*$" #locality="ngModel">
+        <div *ngIf="locality.invalid && (locality.dirty || locality.touched)" class="error-message">Please choose locality</div>
+      </div>
+
+      <div class="form-group">
+        <label for="state">State <span class="mandatory">*</span></label>
+        <select class="form-control" name="state" [(ngModel)]="booking!.customer!.customerState"  #state="ngModel" required >
+          <option value="" selected>Select State</option>
+          <option value="Andhra Pradesh">Andhra Pradesh</option>
+          <option value="Telangana">Telangana</option>
+          <option value="Assam">Assam</option>
+          <option value="Bihar">Bihar</option>
+          <option value="Chhattisgarh">Chhattisgarh</option>
+          <option value="Goa">Goa</option>
+          <option value="Gujarat">Gujarat</option>
+          <option value="Haryana">Haryana</option>
+          <option value="Himachal Pradesh">Himachal Pradesh</option>
+          <option value="Jharkhand">Jharkhand</option>
+          <option value="Karnataka">Karnataka</option>
+          <option value="Kerala">Kerala</option>
+          <option value="Madhya Pradesh">Madhya Pradesh</option>
+          <option value="Maharashtra">Maharashtra</option>
+          <option value="Manipur">Manipur</option>
+          <option value="Meghalaya">Meghalaya</option>
+          <option value="Mizoram">Mizoram</option>
+          <option value="Nagaland">Nagaland</option>
+          <option value="Odisha">Odisha</option>
+          <option value="Punjab">Punjab</option>
+          <option value="Rajasthan">Rajasthan</option>
+         </select>
+         <div *ngIf="state.invalid && (state.dirty || state.touched)" class="error-message">Please choose state</div>
+         </div>
+
+
+      <div class="form-group">
+        <label for="customerCountry">Customer Country</label>
+        <input type="text" class="form-control" name="customerCountry" [(ngModel)]="booking!.customer!.customerCountry" [ngModelOptions]="{standalone:true}" readonly>
+      </div>
+
+      <div class="form-group">
+        <label for="customerAadharNo">Aadhar Number <span class="mandatory">**</span></label>
+        <input type="tel" class="form-control" name="customerAadharNo" [(ngModel)]="booking!.customer!.customerAadharNo"required [ngModelOptions]="{standalone: true}" (input)="validateAadhar()" maxlength="12">
+        <div *ngIf="aadharNoError" class="error-message">Please enter a valid 12-digit aadhar number</div>
+    </div>
+
+    <div class="form-group">
+      <label for="totalMembers">Total members <span class="mandatory">*</span></label>
+      <input type="number" class="form-control" name="totalMembers" [(ngModel)]="booking!.customer!.totalMembers" required #totalMembers="ngModel" min="1" max="5">
+      <div *ngIf="totalMembers.invalid && (totalMembers.dirty || totalMembers.touched)" class="error-message">Please enter a valid number of persons min-1 max-5</div>
+    </div>
+      <hr class="hr" />
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="purpose">Purpose</label>
+        <input type="text" class="form-control" name="purpose" [(ngModel)]="booking!.customer!.purpose" required pattern="^[a-zA-Z][a-zA-Z\s]*$" #purpose="ngModel" >
+        <div *ngIf="purpose.invalid && (purpose.dirty || purpose.touched)" class="error-message">Please enter the purpose</div>
+      </div>
+
+       <div class="form-group">
+        <label for="roomRent"> Room Rent <span class="mandatory">*</span></label>
+        <input type="number" class="form-control" name="roomRent " [(ngModel)]="booking!.roomDetails!.rent!.roomRent" [ngModelOptions]="{standalone:true}">
+      </div>
+      <div class="form-group">
+        <label for="advanceAmount">Advance Amount <span class="mandatory">*</span></label>
+        <input type="number" class="form-control" name="advanceAmount "[(ngModel)]="booking.advanceAmount" required #advanceAmount="ngModel" min="500" max="1000">
+        <div *ngIf="advanceAmount.invalid && (advanceAmount.dirty || advanceAmount.touched)" class="error-message">enter advance amount min-500rs </div>
+      </div>
+      <!-- <div class="form-group">
+        <label for="roomType"> Room Type <span class="mandatory">*</span></label>
+        <input type="text" class="form-control" name="roomType " [(ngModel)]="booking!.roomDetails!.rent!.roomType!.roomType" [ngModelOptions]="{standalone:true}" readonly>
+      </div> -->
+
+    </div>
+    <div class="btndiv">
+      <button  type="submit" class="btn btn-success" [disabled]="myForm.invalid">Book</button>
+      <button class="btn btn-primary" (click)="resetValues($event)">Reset</button>
+    </div>
+
+  </form>
+ 
+</div>
+<div class="cont">
+
+ 

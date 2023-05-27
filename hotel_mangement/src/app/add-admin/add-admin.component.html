@@ -1,0 +1,44 @@
+<div class="main-form">
+    <form #myForm="ngForm" (ngSubmit)="submitDetails(myForm)">
+      <!-- <div class="form-row"> -->
+        <div class="form-group">
+          <div>
+            <label for="fullName">Name <span class="mandatory">*</span></label>
+            <input type="text" class="form-control" name="fullName" [(ngModel)]="admin.adminName" required pattern="^[a-zA-Z][a-zA-Z\s]*$" #fullName="ngModel">
+            <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" class="error-message">
+              <span>Please enter a valid full name (letters and spaces only)</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+            <div>
+            <label for="phoneNo">Phone Number <span class="mandatory">*</span></label>
+            <input type="tel" class="form-control" name="phoneNo" [(ngModel)]="admin.phoneNumber"  required [ngModelOptions]="{standalone: true}" (click)="validatePhoneNo()" (input)="validatePhoneNo()" minlength="10" maxlength="10">
+            <div *ngIf="phoneNoError" class="error-message">Please enter a valid 10-digit phone number and does not start with 0to5</div>
+        </div>
+          </div>
+      <!-- </div> -->
+      <div class="form-group">
+        <div>
+          <label for="fullName">Username <span class="mandatory">*</span></label>
+          <input type="email" class="form-control" name="username" [(ngModel)]="admin.username" required pattern="^[a-zA-Z][a-zA-Z\s]*$"  #username="ngModel">
+          <div *ngIf="username.invalid && (username.dirty || username.touched)" class="error-message">
+            <span>UserName must not be Empty</span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <label for="fullName">Password <span class="mandatory">*</span></label>
+          <input type="text" class="form-control" name="password" [(ngModel)]="admin.password" required pattern="^(?=.[A-Za-z])(?=.\d)(?=.*[@])[A-Za-z\d@]+$" #password="ngModel">
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
+            <span>Password must contain atleast one uppercase ,one lowercase and one special character :@</span>
+          </div>
+        </div>
+      </div>
+      <div class="btndiv">
+        <button  type="submit" class="btn btn-success" [disabled]="myForm.invalid">Add Admin</button>
+        <button type="reset" class="btn btn-primary">Reset</button>
+      </div>
+    </form>
+</div>

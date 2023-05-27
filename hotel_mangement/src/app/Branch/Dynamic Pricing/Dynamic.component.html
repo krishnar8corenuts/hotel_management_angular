@@ -1,0 +1,22 @@
+<!-- <div class="exitbtn">
+    <button type="button" class="btn btn-warning"(click)="back()">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </div> -->
+
+  <div class="card-container" style="display: flex; justify-content: space-around; padding-top: 150px;">
+    <div class="card" *ngFor="let details of dynamicPrice" style="width: 15%; border-radius: 10px; background-color: #F8F8FF; overflow: hidden;">
+      <div class="card-body" style="border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
+        <img src="https://t3.ftcdn.net/jpg/05/31/37/70/360_F_531377010_IlG4kV3Q8M3GQYjZd7DC1MqUpdDinZOi.jpg" alt="percentage-image" style="width: 100px; height: 100px;">
+        <h3 class="card-title">Book-Percentage:</h3>
+        <button  class="btn btn-info">{{details.lowerBound}}% - {{details.upperBound}}%</button>
+        <h3 class="card-title">% Rent Change:</h3>
+        <button  class="btn btn-info"> {{(details.price - 1) | percent: '1.1-1'}}</button>
+
+      </div>
+      <div class="knife-edge" style="width: 20px; height: 100%; background-color: #2e2eb1; transform: skew(-20deg);">
+      </div>
+    </div>
+  </div>
+
+

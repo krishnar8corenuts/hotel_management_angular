@@ -1,0 +1,17 @@
+<body style="overflow: hidden;">
+  <div class="row" *ngIf="branches">
+    <div class="col-md-4 coll" *ngFor="let branch of branches">
+      <div class="cccc">
+        <div class="rounded-circle overflow-hidden" style="width: 140px; height: 140px; background: linear-gradient(45deg, #baedd4,#007a80 );">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; text-align: center;">
+            <h2 style="margin: 0; color:white;">{{branch.branchname}} </h2>
+          </div>
+      </div>
+
+      <h2>{{branch.branchLocation}}</h2>
+
+      <p><a  class="btn btn-outline-info" routerLink="/admins/adminhome/settings">View details &raquo;</a></p>
+      </div>
+    </div>
+  </div>
+  </body>

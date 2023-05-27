@@ -1,0 +1,66 @@
+/* form.component.css */
+.form-group {
+    position: relative;
+      display: inline-block;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px 13px;
+      width: 100%;
+    }
+    label{
+      margin: 3px;
+    }
+  
+    @media (max-width: 575px) {
+      .form-row .form-group {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    hr:not([size]).hr {
+      --mdb-divider-height: 1px;
+      --mdb-divider-bg: #757575;
+    }
+  
+  
+     .main-form{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 100px;
+     
+    }
+    form{
+        width: 50%;
+        box-shadow: 0px 0px 10px deepskyblue;
+        border-radius: 15px;
+    }
+    .form-control{
+      width: 95%;
+    }
+    /*
+    .reset{
+      display: flex;
+      justify-content: center;
+    }  */
+    
+    .error-message {
+      color: red;
+       position: absolute;/*set position absolute on the error message element
+      top: 100%; /* position the error message below the parent element */
+      /*left: 0; /*align the error message to the left of the parent element */
+      height: 30px;
+    }
+    .btndiv{
+        margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .btndiv button{
+      margin: 5px;
+    }
+  .arrow-back
+  {
+    
+    cursor: pointer;
+  }

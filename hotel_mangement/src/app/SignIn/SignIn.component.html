@@ -1,0 +1,32 @@
+<div class="login-container" style="background-image: url('https://w0.peakpx.com/wallpaper/425/619/HD-wallpaper-atlantis-bachir-phactory-dubai-palm-island.jpg');">
+  
+
+
+<div class="login-container">
+  <div class="login-modal">
+    <div class="login-image">
+      <img src="https://www.freeiconspng.com/thumbs/login-icon/member-login-icon-6.png" alt="Login Image" class="rounded-circle">
+    </div>
+    <div class="login-form">
+      <h1 class="login-title"><i class="fas fa-user"></i> Hotel Taj </h1>
+      <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <div class="form-group">
+          <label for="email"><i class="fas fa-envelope"></i> Email</label>
+          <input type="email" class="form-control" [(ngModel)]="login.username" name="username" required>
+          <!-- Add appropriate validation styles for invalid input -->
+          <div *ngIf="form.controls['username'].invalid && (form.controls['username'].dirty || form.controls['username'].touched)" class="error-message"><i class="fas fa-exclamation-circle"></i> Please enter a valid email</div>
+        </div>
+        <div class="form-group">
+          <label for="password"><i class="fas fa-lock"></i> Password</label>
+          <input type="password" class="form-control" [(ngModel)]="login.password" name="password" required>
+          <!-- Add appropriate validation styles for invalid input -->
+          <div *ngIf="form.controls['password'].invalid && (form.controls['password'].dirty || form.controls['password'].touched)" class="error-message"><i class="fas fa-exclamation-circle"></i> Please enter a valid password</div>
+        </div>
+      
+        <button type="submit" class="btn-login"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+        
+      </form>
+    </div>
+  </div>
+</div>
+</div>

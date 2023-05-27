@@ -1,0 +1,52 @@
+
+.head{
+  display: flex;
+  justify-content: center;
+}
+.cards{
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+
+}
+.card{
+  margin: 30px;
+  background-color: white;
+}
+/* .cad:hover{
+
+} */
+.card-body{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.card:hover {
+  transform: translateY(-2px); /* Add hover effect */
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+  }
+.room-type-header{
+
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+}
+
+.room-type-info{
+  margin-top: 10px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+.graph{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.cont{
+  width: 100%;
+  /* height: 100vh; */
+  position: fixed;
+  top:0;
+  left:0;
+  background-color: blueviolet;
+}

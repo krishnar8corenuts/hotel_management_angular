@@ -1,0 +1,31 @@
+<div class="main-form">
+  <mat-dialog-content class="dialog">
+    <h1>Add Branch</h1>
+  </mat-dialog-content>
+    <form #myForm="ngForm" (ngSubmit)="submitDetails(myForm)">
+      <!-- <div class="form-row"> -->
+        <div class="form-group">
+          <div>
+            <label for="branchname" style="font-weight: bold; color: black;">Name <span class="mandatory">*</span></label>
+            <input type="text" class="form-control" name="branchname" outline="none" [(ngModel)]="branch.branchname" required pattern="^[a-zA-Z][a-zA-Z\s]*$" #branchname="ngModel">
+            <div *ngIf="branchname.invalid && (branchname.dirty || branchname.touched)" class="error-message">
+              <span>Please enter a valid full name (letters and spaces only)</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+            <div>
+              <label for="location" style="font-weight: bold; color: black;">Location <span class="mandatory">*</span></label>
+              <input type="text" class="form-control" name="location" [(ngModel)]="branch.branchLocation" required pattern="^[a-zA-Z][a-zA-Z\s]*$" #location="ngModel">
+              <div *ngIf="location.invalid && (location.dirty || location.touched)" class="error-message">
+                <span>Please Enter the Location </span>
+              </div>
+            </div>
+          </div>
+
+      <div class="btndiv">
+        <button  type="submit" class="btn btn-success" [disabled]="myForm.invalid">Add Branch</button>
+        <button type="reset" class="btn btn-primary">Reset</button>
+      </div>
+    </form>
+</div>
