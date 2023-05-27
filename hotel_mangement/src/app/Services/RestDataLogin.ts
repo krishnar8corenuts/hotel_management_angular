@@ -23,7 +23,7 @@ export class RestDataSource {
     return this.envUrl;
   }
   devUrl:String="http://localhost:"
-  prodUrl:String="http://34.122.139.85/"
+  prodUrl:String="http://34.122.139.85:"
  envUrl:String=this.devUrl
 
  getDetails(): Observable<Login[]> {
