@@ -18,6 +18,6 @@ WORKDIR /usr/share/nginx/html
 
 RUN rm -rf ./*
 
-COPY --from=builder /ang23/dist/hotel-management .
+COPY --from=builder /ang23/dist/hotel-management a
 
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
